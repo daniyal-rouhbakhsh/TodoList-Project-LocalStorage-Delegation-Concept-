@@ -3,11 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/806da4a2dc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <script src="JS/app.js" defer></script>
     <title>TodoList Project (Event Delegation)</title>
 </head>
 <body>
-    
+    <h1 id="project-title">TodoList Project (with LocalStorage & Delegation Concept)</h1>
+    <div class="input-container">
+        <input type="text" id="input" placeholder="Type Todo...">
+        <div class="color-container">
+            <span class="color-item" data-color="#add8e6"></span>
+            <span class="color-item" data-color="#fa8072"></span>
+            <span class="color-item" data-color="#90ee90"></span>
+            <span class="color-item" data-color="#ffb6c1"></span>
+            <span class="color-item" data-color="#fafad2"></span>
+            <span class="color-item" data-color="#808080"></span>
+            <span class="color-item" data-color="#adff2f"></span>
+            <span class="color-item" data-color="#ffdead"></span>
+        </div>
+        <div class="buttons">
+            <button id="edit-todo"><i class="fa-solid fa-pen-to-square"></i></button>
+            <button id="add-todo"><i class="fa-solid fa-plus"></i></button>
+        </div>
+    </div>
+    <div class="todo-container">
+        <div class="todo-item">
+            <h6 class="todo-text">Google Ads</h6>
+        </div>
+    </div>
 </body>
 </html>
