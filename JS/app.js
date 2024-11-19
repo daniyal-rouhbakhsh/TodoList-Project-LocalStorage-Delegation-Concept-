@@ -59,6 +59,16 @@ const changeTodoBackgroundColor = e => {
     input.focus()
 }
 
+const removeTodoFunc = e => {
+    const todoDiv = e.target.closest('.todo-item')
+    const divID = parseInt(todoDiv.id)
+    
+    todosArray = todosArray.filter(todo => todo.todoId !== divID)
+    
+    todoDOMGenerator(todosArray)
+    setLocalStorageData(todosArray)
+}
+
 const clearInputFunc = () => {
     input.value = ""
     input.focus()
@@ -70,6 +80,7 @@ const clearInputFunc = () => {
 addTodoBtn.addEventListener('click', addTodoFunc)
 editTodoBtn.addEventListener('click', clearInputFunc)
 colorContainer.addEventListener('click',changeTodoBackgroundColor)
+todoContainer.addEventListener('dblclick',removeTodoFunc,true)
 window.addEventListener('load',getLocalStorageDataFunc)
 input.addEventListener('keyup', e => {
     if(e.code === 'Enter'){
