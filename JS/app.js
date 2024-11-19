@@ -18,6 +18,7 @@ const addTodoFunc = () => {
         
         todosArray.push(todoObj)
         todoDOMGenerator(todosArray)
+        setLocalStorageData(todosArray)
     }
 
     clearInputFunc()
@@ -41,6 +42,22 @@ const todoDOMGenerator = todosArray => {
     });
 }
 
+const setLocalStorageData = todosArray => {
+    localStorage.setItem('Todos',JSON.stringify(todosArray))
+}
+
+const getLocalStorageDataFunc = () => {
+    let getLocalStorageData = JSON.parse(localStorage.getItem('Todos')) || []
+    todosArray = getLocalStorageData
+
+    todoDOMGenerator(todosArray)
+}
+
+const changeTodoBackgroundColor = e => {
+    colorItem = e.target.dataset.color 
+    input.style.backgroundColor = colorItem
+    input.focus()
+}
 
 const clearInputFunc = () => {
     input.value = ""
@@ -52,6 +69,8 @@ const clearInputFunc = () => {
 
 addTodoBtn.addEventListener('click', addTodoFunc)
 editTodoBtn.addEventListener('click', clearInputFunc)
+colorContainer.addEventListener('click',changeTodoBackgroundColor)
+window.addEventListener('load',getLocalStorageDataFunc)
 input.addEventListener('keyup', e => {
     if(e.code === 'Enter'){
         addTodoFunc()
